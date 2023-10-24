@@ -1,0 +1,72 @@
+
+.TiempoActual{
+    width: 30%;
+    background: #1E213A;
+    display: flex;
+    flex-direction: column;
+  }
+  .MenuBusqueda{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin: 1.5rem 0 0 0;
+  }
+  .btn-secondary{
+    color: #E7E7EB;
+  }
+  .btnLocation{
+    background: gray;
+    color: white;
+    border: none;
+    border-radius: 100%;
+    padding: 2px 10.5px 1px 10.5px;
+  }
+  .divIcon{
+    position: relative;
+  }
+  .nubes{
+    width: 100%;
+
+  }
+  .clima{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px;
+  }
+  .divGrados{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+  }
+  .temperatura{
+    font-size: 5.5rem;
+  }
+  .divGrados>p{
+    margin: 0;
+  }
+  .grados{
+    color: #A09FB1;
+    font-size: 2.1rem;
+  }
+  .description{
+    color: #A09FB1;
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .divLocation{
+    margin-top: 2.5rem;
+  }
+  .date{
+    color: #88869D ;
+    font-size: .7rem;
+  }
+  .location{
+    color: #88869D ;
+    font-size: .7rem;
+  }

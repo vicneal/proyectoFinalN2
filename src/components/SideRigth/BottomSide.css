@@ -1,0 +1,44 @@
+.bottomSide{
+    width: 75%;
+    margin: 3rem auto;
+    text-align: start;
+}
+h3{
+    color: #E7E7EB;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.divCardHightlights{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.divCard{
+    display: flex;
+    justify-content: space-between;
+    gap: .6rem;
+}
+
+.diviconNavi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: .6rem;
+}
+button{
+    border: none;
+    border-radius: 100%;
+    background: #585676;
+}
+
+#arrow-icon {
+    color: #e7e7eb;
+    font-size: 7px;
+  }
+  .diviconNavi p {
+    color: #E7E7EB;
+    font-size: .5rem;
+    margin: 0;
+  }

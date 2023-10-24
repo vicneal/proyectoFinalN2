@@ -1,0 +1,68 @@
+.sideRigth{
+    background: #100E1D;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.divSuperior{
+    width: 75%;
+    margin: 0 auto;
+}
+.btnGrados{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1.5rem 0;
+}
+.btnCent,.btnFaren{
+    border-radius: 100%;
+    padding: 6px 12px 4px 9px;
+    border: none;
+    font-weight: 600;
+}
+.btnCent{
+    background: #E7E7EB;
+    color: #110E3C;
+    margin-right: 1rem;
+}
+.btnFaren{
+    background: #585676;
+    color: white;
+}
+
+.daysWeather{
+    display: flex;
+    justify-content: space-between;
+
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1E213A;
+}
+.card-body{
+    height: 8rem;
+}
+.card-title{
+    font-size: .7rem;
+    color: #E7E7EB;
+    margin: 0;
+}
+img{
+    width: 3.5rem;
+}
+.divGradosAprox{
+    display: flex;
+    justify-content: space-between;
+}
+.divGradosAprox p{
+    color: #E7E7EB;
+    margin-top: .8rem;
+    margin-bottom: 0;
+    font-size: .8rem;
+}
+
+.divGradosAprox p:nth-child(2){
+    color: #A09FB1 ;
+}
