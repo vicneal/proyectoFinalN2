@@ -10,7 +10,7 @@ function App() {
   const getData = async () => {
     try {
       const fetchData = await fetch(
-        "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=66b59d8b106607751b6768159cba40db&units=metric"
+        "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=774dd9eb33b831186f293ca8c0809711&units=metric"
       );
       const jsonData = await fetchData.json();
       setData(jsonData);
