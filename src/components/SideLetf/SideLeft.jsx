@@ -1,7 +1,7 @@
 import "./SideLeft.css";
 import ImgNubes from "../../assets/img1.png";
 
-export const SideLeft = ({ data }) => {
+export const SideLeft = ({ data, temperature }) => {
   let prueba = data?.weather;
   let temp = data?.main;
 
@@ -34,8 +34,12 @@ export const SideLeft = ({ data }) => {
         </div>
         <div className="divGrados">
           <p>
-            <span className="temperatura">{temp && Math.floor(temp.temp)}</span>
-            <span className="grados">°C</span>
+            <span className="temperatura">
+              {temperature
+                ? temp && Math.floor(temp.temp)
+                : temp && (Math.floor(temp.temp) * 9) / 5 + 32}
+            </span>
+            <span className="grados">{temperature ? "°C" : "°F"}</span>
           </p>
           <p className="description">
             {prueba &&

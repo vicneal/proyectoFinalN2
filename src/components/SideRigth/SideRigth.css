@@ -12,8 +12,9 @@
     display: flex;
     justify-content: flex-end;
     margin: 1.5rem 0;
+    gap: 1.5rem;
 }
-.btnCent,.btnFaren{
+.btncf{
     border-radius: 100%;
     padding: 6px 12px 4px 9px;
     border: none;
@@ -22,7 +23,7 @@
 .btnCent{
     background: #E7E7EB;
     color: #110E3C;
-    margin-right: 1rem;
+
 }
 .btnFaren{
     background: #585676;
@@ -55,6 +56,7 @@ img{
 .divGradosAprox{
     display: flex;
     justify-content: space-between;
+    gap: .5rem;
 }
 .divGradosAprox p{
     color: #E7E7EB;
@@ -65,4 +67,8 @@ img{
 
 .divGradosAprox p:nth-child(2){
     color: #A09FB1 ;
+}
+
+.celfa{
+    font-size: .5rem;
 }
