@@ -72,3 +72,20 @@ img{
 .celfa{
     font-size: .5rem;
 }
+@media screen and (max-width: 450px) {
+    .sideRigth{
+        width: 100%;
+    }
+    .btnGrados{
+        display: none;
+    }
+    .daysWeather{
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .card{
+        margin-top: 1rem;
+    }
+  }

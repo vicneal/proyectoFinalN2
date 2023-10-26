@@ -23,7 +23,7 @@ export const BottomSide = ({ data }) => {
                   Wind status
                 </h5>
                 <h4>
-                  <span style={{ color: "#E7E7EB", fontSize: "3rem" }}>
+                  <span style={{ color: "#E7E7EB", fontSize: "2.8rem" }}>
                     {Math.round((wind && wind.speed) * 2.23694)}
                   </span>{" "}
                   <span style={{ color: "#E7E7EB", fontSize: "1.5rem" }}>
@@ -57,7 +57,7 @@ export const BottomSide = ({ data }) => {
                   Humidity
                 </h5>
                 <h4>
-                  <span style={{ color: "#E7E7EB", fontSize: "3rem" }}>
+                  <span style={{ color: "#E7E7EB", fontSize: "2.8rem" }}>
                     {temp && temp.humidity}
                   </span>{" "}
                   <span style={{ color: "#E7E7EB", fontSize: "1.5rem" }}>
@@ -88,7 +88,7 @@ export const BottomSide = ({ data }) => {
             >
               <div
                 className="card-body"
-                style={{ height: "6.5rem", textAlign: "center" }}
+                style={{ height: "7rem", textAlign: "center" }}
               >
                 <h5
                   className="card-title"
@@ -97,7 +97,7 @@ export const BottomSide = ({ data }) => {
                   Visibitity
                 </h5>
                 <h4>
-                  <span style={{ color: "#E7E7EB", fontSize: "3rem" }}>
+                  <span style={{ color: "#E7E7EB", fontSize: "2.8rem" }}>
                     {data && (data?.visibility * 0.000621371).toFixed(1)}
                   </span>{" "}
                   <span style={{ color: "#E7E7EB", fontSize: "1.5rem" }}>
@@ -112,7 +112,7 @@ export const BottomSide = ({ data }) => {
             >
               <div
                 className="card-body"
-                style={{ height: "6.5rem", textAlign: "center" }}
+                style={{ height: "7rem", textAlign: "center" }}
               >
                 <h5
                   className="card-title"
@@ -121,7 +121,7 @@ export const BottomSide = ({ data }) => {
                   Air Pressure
                 </h5>
                 <h4>
-                  <span style={{ color: "#E7E7EB", fontSize: "3rem" }}>
+                  <span style={{ color: "#E7E7EB", fontSize: "2.8rem" }}>
                     {temp && temp.pressure}
                   </span>{" "}
                   <span style={{ color: "#E7E7EB", fontSize: "1.5rem" }}>
