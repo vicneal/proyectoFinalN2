@@ -135,10 +135,10 @@ export const SideLeft = ({
             className="modal-content"
             style={{ color: "white", background: "#100E1D" }}
           >
-            <div class="modal-header" style={{ border: "none" }}>
+            <div className="modal-header" style={{ border: "none" }}>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
                 style={{ color: "white", fontSize: "1.5rem" }}
@@ -153,7 +153,7 @@ export const SideLeft = ({
                   className="form-control"
                   type="text"
                   placeholder="Search Country"
-                  value={searchValue}
+                  defaultValue={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
                 />
                 <button
@@ -162,7 +162,7 @@ export const SideLeft = ({
                   onClick={handleSearch}
                 >
                   <i
-                    class="fa-solid fa-magnifying-glass"
+                    className="fa-solid fa-magnifying-glass"
                     style={{ color: " #a7aaaf;" }}
                   ></i>
                 </button>
