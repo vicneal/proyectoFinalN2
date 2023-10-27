@@ -10,6 +10,7 @@ export const SideLeft = ({
   handleBtnTokio,
   onSearchCountry,
   uicacionActual,
+  ubiDefecto,
 }) => {
   let prueba = data?.weather;
   let temp = data?.main;
@@ -29,7 +30,6 @@ export const SideLeft = ({
   };
   const [locacion, setLocacion] = useState(null);
   const [days, setDays] = useState([]);
-  const [ubi, setUbi] = useState(null);
 
   const handleLocation = () => {
     if ("geolocation" in navigator) {
@@ -37,7 +37,6 @@ export const SideLeft = ({
         const latitud = position.coords.latitude;
         const longitud = position.coords.longitude;
         setLocacion({ latitud, longitud });
-        console.log(`Tu ubicación es: ${latitud}, ${longitud}`);
       });
     } else {
       console.log("Geolocalización no disponible en este navegador.");
@@ -59,7 +58,7 @@ export const SideLeft = ({
     getDataDays();
   }, [locacion]);
   let ubicacion = days?.city;
-  console.log(ubicacion && ubicacion?.name);
+  uicacionActual(ubicacion && ubicacion?.name);
   return (
     <>
       <div className="TiempoActual">

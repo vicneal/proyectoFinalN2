@@ -38,7 +38,7 @@ function App() {
   };
 
   const uicacionActual = (ubiActual) => {
-    console.log("Nuevo valor de búsqueda en App:", ubiDefecto);
+    setUbiDefecto(ubiActual);
   };
 
   useEffect(() => {}, [ubiDefecto]);
