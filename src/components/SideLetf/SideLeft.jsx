@@ -44,7 +44,7 @@ export const SideLeft = ({
   const getDataDays = async () => {
     try {
       const fetchData = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${locacion.latitud}&lon=${locacion.longitud}&appid=7ebb54cecddb5d056fa89844ff55ef38`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${locacion.latitud}&lon=${locacion.longitud}&appid=774dd9eb33b831186f293ca8c0809711`
       );
       const jsonData = await fetchData.json();
       setCountry(jsonData);
