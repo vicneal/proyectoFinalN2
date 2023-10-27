@@ -11,7 +11,9 @@ function App() {
   const getData = async () => {
     try {
       const fetchData = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${ubiDefecto}&appid=774dd9eb33b831186f293ca8c0809711&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${
+          ubiDefecto && ubiDefecto
+        }&appid=774dd9eb33b831186f293ca8c0809711&units=metric`
       );
       const jsonData = await fetchData.json();
       setData(jsonData);
@@ -22,7 +24,7 @@ function App() {
 
   useEffect(() => {
     getData();
-  }, [ubiDefecto]);
+  }, [, ubiDefecto]);
 
   const handleBtnLima = () => {
     setUbiDefecto("lima");
