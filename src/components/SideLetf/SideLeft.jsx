@@ -13,7 +13,6 @@ export const SideLeft = ({
 }) => {
   let prueba = data?.weather;
   let temp = data?.main;
-
   let date = new Date();
   let day = { weekday: "long", locale: "en-US" };
   let nombreDia = date.toLocaleDateString("en-US", day);
@@ -27,38 +26,36 @@ export const SideLeft = ({
     onSearchCountry(searchValue);
     setSearchValue("");
   };
-  const [locacion, setLocacion] = useState();
+  const [locacion, setLocacion] = useState({
+    latitud: data.coord.lat,
+    longitud: data.coord.lon,
+  });
   const [country, setCountry] = useState([]);
 
-  const handleLocation = () => {
+  const handleLocation = async () => {
     if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(function (position) {
+      navigator.geolocation.getCurrentPosition(async (position) => {
         const latitud = position.coords.latitude;
         const longitud = position.coords.longitude;
-        setLocacion({ latitud, longitud });
+        const da = await getDataDays(latitud, longitud);
+        uicacionActual(da.city.name);
       });
     } else {
       console.log("Geolocalización no disponible en este navegador.");
     }
   };
-  const getDataDays = async () => {
+  const getDataDays = async (latitud, longitud) => {
     try {
       const fetchData = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${locacion.latitud}&lon=${locacion.longitud}&appid=774dd9eb33b831186f293ca8c0809711`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitud}&lon=${longitud}&appid=15f19b77e326ed25f9832b22e374fb95`
       );
       const jsonData = await fetchData.json();
       setCountry(jsonData);
+      return jsonData;
     } catch (error) {
       console.error("Error al obtener datos:", error);
     }
   };
-
-  useEffect(() => {
-    getDataDays();
-
-    let ubicacion = country?.city;
-    uicacionActual(ubicacion && ubicacion?.name);
-  }, [locacion]);
 
   return (
     <>

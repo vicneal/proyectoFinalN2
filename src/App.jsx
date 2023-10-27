@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { SideLeft } from "./components/SideLetf/SideLeft.jsx";
 import { SideRigth } from "./components/SideRigth/SideRigth.jsx";
 import "./App.css";
+import axios from "axios";
 
 function App() {
   const [data, setData] = useState([]);
@@ -10,13 +11,15 @@ function App() {
 
   const getData = async () => {
     try {
-      const fetchData = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${
-          ubiDefecto && ubiDefecto
-        }&appid=774dd9eb33b831186f293ca8c0809711&units=metric`
+      // const fetchData = await fetch(
+      //   `https://api.openweathermap.org/data/2.5/weather?q=paris&appid=774dd9eb33b831186f293ca8c0809711&units=metric`
+      // );
+      const fetchData = await axios(
+        `https://api.openweathermap.org/data/2.5/weather?q=${ubiDefecto}&appid=15f19b77e326ed25f9832b22e374fb95&units=metric`
       );
-      const jsonData = await fetchData.json();
-      setData(jsonData);
+      // const jsonData = await fetchData.json();
+      // setData(jsonData);
+      setData(fetchData.data);
     } catch (error) {
       console.error("Error al obtener datos:", error);
     }
@@ -65,21 +68,27 @@ function App() {
   return (
     <>
       <div className="container">
-        <SideLeft
-          data={data}
-          temperature={temperature}
-          handleBtnLima={handleBtnLima}
-          handleBtnMadrid={handleBtnMadrid}
-          handleBtnTokio={handleBtnTokio}
-          onSearchCountry={onSearchCountry}
-          uicacionActual={uicacionActual}
-        />
-        <SideRigth
-          data={data}
-          btnC={handleBtnCelcius}
-          btnF={handleBtnFahrenheit}
-          temperature={temperature}
-        />
+        {data.coord != undefined ? (
+          <>
+            <SideLeft
+              data={data}
+              temperature={temperature}
+              handleBtnLima={handleBtnLima}
+              handleBtnMadrid={handleBtnMadrid}
+              handleBtnTokio={handleBtnTokio}
+              onSearchCountry={onSearchCountry}
+              uicacionActual={uicacionActual}
+            />
+            <SideRigth
+              data={data}
+              btnC={handleBtnCelcius}
+              btnF={handleBtnFahrenheit}
+              temperature={temperature}
+            />
+          </>
+        ) : (
+          <span>LOading...</span>
+        )}
       </div>
     </>
   );

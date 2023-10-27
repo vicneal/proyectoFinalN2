@@ -11,11 +11,12 @@ export const SideRigth = ({ data, btnC, btnF, temperature }) => {
     try {
       const fetchData = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${
-          coordenadas && coordenadas.lat
+          data.coord && data?.coord.lat
         }&lon=${
-          coordenadas && coordenadas.lon
-        }&appid=774dd9eb33b831186f293ca8c0809711`
+          data.coord && data?.coord.lon
+        }&appid=15f19b77e326ed25f9832b22e374fb95`
       );
+
       const jsonData = await fetchData.json();
       setDays(jsonData);
     } catch (error) {
@@ -24,8 +25,10 @@ export const SideRigth = ({ data, btnC, btnF, temperature }) => {
   };
 
   useEffect(() => {
-    getDataDays();
-  }, [days]);
+    if (data.coord != undefined) {
+      getDataDays();
+    }
+  }, []);
 
   let dias = days?.list;
 
