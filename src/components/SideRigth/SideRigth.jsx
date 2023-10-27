@@ -14,7 +14,7 @@ export const SideRigth = ({ data, btnC, btnF, temperature }) => {
           coordenadas && coordenadas.lat
         }&lon=${
           coordenadas && coordenadas.lon
-        }&appid=774dd9eb33b831186f293ca8c0809711`
+        }&appid=7ebb54cecddb5d056fa89844ff55ef38`
       );
       const jsonData = await fetchData.json();
       setDays(jsonData);

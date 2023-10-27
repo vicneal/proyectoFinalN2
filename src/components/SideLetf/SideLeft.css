@@ -70,6 +70,41 @@
     font-size: .7rem;
   }
 
+  .modal-dialog,
+  .come-from-modal.left .modal-dialog{
+    position: fixed;
+    margin: 0px 0 0px 108px;
+    width: 25.8%;
+    height: 100%;
+    transform: translate3d(0%, 0 0);
+  }
+  .come-from-modal.left .modal-content{
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 0px;
+  }
+  .come-from-modal.left.fade .modal-dialog{
+    background-color: #100E1D;
+  }
+
+  .ubicacionesDefecto{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+  }
+.ubiDefec{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+.ubiDefec:hover{ 
+  border: none;
+}
+
   @media screen and (max-width: 450px) {
     .TiempoActual{
       width: 100%;

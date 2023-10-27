@@ -6,11 +6,12 @@ import "./App.css";
 function App() {
   const [data, setData] = useState([]);
   const [temperature, setTemperature] = useState(true);
+  const [ubiDefecto, setUbiDefecto] = useState("paris");
 
   const getData = async () => {
     try {
       const fetchData = await fetch(
-        "https://api.openweathermap.org/data/2.5/weather?q=madrid&appid=774dd9eb33b831186f293ca8c0809711&units=metric"
+        `https://api.openweathermap.org/data/2.5/weather?q=${ubiDefecto}&appid=7ebb54cecddb5d056fa89844ff55ef38&units=metric`
       );
       const jsonData = await fetchData.json();
       setData(jsonData);
@@ -21,7 +22,23 @@ function App() {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [ubiDefecto]);
+
+  const handleBtnLima = () => {
+    setUbiDefecto("lima");
+  };
+  const handleBtnMadrid = () => {
+    setUbiDefecto("madrid");
+  };
+  const handleBtnTokio = () => {
+    setUbiDefecto("tokio");
+  };
+  const onSearchCountry = (newValue) => {
+    console.log("Nuevo valor de búsqueda en App:", newValue);
+    setUbiDefecto(newValue);
+  };
+
+  useEffect(() => {}, [ubiDefecto]);
 
   const handleBtnCelcius = () => {
     let btnCel = document.getElementById("btnC");
@@ -41,10 +58,18 @@ function App() {
     btnCel?.classList.remove("btnCent");
     setTemperature(false);
   };
+
   return (
     <>
       <div className="container">
-        <SideLeft data={data} temperature={temperature} />
+        <SideLeft
+          data={data}
+          temperature={temperature}
+          handleBtnLima={handleBtnLima}
+          handleBtnMadrid={handleBtnMadrid}
+          handleBtnTokio={handleBtnTokio}
+          onSearchCountry={onSearchCountry}
+        />
         <SideRigth
           data={data}
           btnC={handleBtnCelcius}

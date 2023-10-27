@@ -1,7 +1,15 @@
 import "./SideLeft.css";
 import ImgNubes from "../../assets/img1.png";
+import { useState } from "react";
 
-export const SideLeft = ({ data, temperature }) => {
+export const SideLeft = ({
+  data,
+  temperature,
+  handleBtnLima,
+  handleBtnMadrid,
+  handleBtnTokio,
+  onSearchCountry,
+}) => {
   let prueba = data?.weather;
   let temp = data?.main;
 
@@ -11,14 +19,29 @@ export const SideLeft = ({ data, temperature }) => {
 
   let month = { month: "long" };
   let nombreMes = date.toLocaleString("es-ES", month);
+
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleSearch = () => {
+    onSearchCountry(searchValue);
+    setSearchValue("");
+  };
+
   return (
     <>
       <div className="TiempoActual">
         <div className="MenuBusqueda">
-          <button type="button" className="btn btn-secondary">
+          <button
+            className="btn btn-secondary "
+            type="button "
+            data-bs-toggle="modal"
+            data-bs-target="#myModal"
+            style={{ width: "200px" }}
+          >
             Seach for places
           </button>
-          <button className="btnLocation">
+
+          <button className="btnLocation" type="button " data-bs-toggle="modal">
             <i className="bi bi-crosshair"></i>
           </button>
         </div>
@@ -61,6 +84,88 @@ export const SideLeft = ({ data, temperature }) => {
               </span>{" "}
               {data && data?.name}
             </p>
+          </div>
+        </div>
+      </div>
+      {/* --------------------------- */}
+      <div
+        className="modal fade come-from-modal left"
+        id="myModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+      >
+        <div className="modal-dialog .modal-dialog-scrollabl" role="document">
+          <div
+            className="modal-content"
+            style={{ color: "white", background: "#100E1D" }}
+          >
+            <div class="modal-header" style={{ border: "none" }}>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                style={{ color: "white", fontSize: "1.5rem" }}
+              >
+                X
+              </button>
+            </div>
+
+            <div className="ubicacionesDefecto">
+              <div className="d-flex my-5" style={{ width: "499px;" }}>
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Search Country"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                />
+                <button
+                  className="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  onClick={handleSearch}
+                >
+                  <i
+                    class="fa-solid fa-magnifying-glass"
+                    style={{ color: " #a7aaaf;" }}
+                  ></i>
+                </button>
+              </div>
+              <button
+                className="btn btn-outline-secondary ubiDefec"
+                onClick={handleBtnLima}
+                data-bs-dismiss="modal"
+              >
+                Lima
+                <i
+                  className="fa-solid fa-chevron-right"
+                  style={{ color: "#86888a" }}
+                ></i>
+              </button>
+              <button
+                className="btn btn-outline-secondary ubiDefec"
+                onClick={handleBtnMadrid}
+                data-bs-dismiss="modal"
+              >
+                Madrid
+                <i
+                  className="fa-solid fa-chevron-right"
+                  style={{ color: "#86888a" }}
+                ></i>
+              </button>
+              <button
+                className="btn btn-outline-secondary ubiDefec"
+                onClick={handleBtnTokio}
+                data-bs-dismiss="modal"
+              >
+                Tokio
+                <i
+                  className="fa-solid fa-chevron-right"
+                  style={{ color: "#86888a" }}
+                ></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
