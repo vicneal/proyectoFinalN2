@@ -10,7 +10,6 @@ export const SideLeft = ({
   handleBtnTokio,
   onSearchCountry,
   uicacionActual,
-  ubiDefecto,
 }) => {
   let prueba = data?.weather;
   let temp = data?.main;
@@ -28,8 +27,8 @@ export const SideLeft = ({
     onSearchCountry(searchValue);
     setSearchValue("");
   };
-  const [locacion, setLocacion] = useState(null);
-  const [days, setDays] = useState([]);
+  const [locacion, setLocacion] = useState();
+  const [country, setCountry] = useState([]);
 
   const handleLocation = () => {
     if ("geolocation" in navigator) {
@@ -48,7 +47,7 @@ export const SideLeft = ({
         `https://api.openweathermap.org/data/2.5/forecast?lat=${locacion.latitud}&lon=${locacion.longitud}&appid=7ebb54cecddb5d056fa89844ff55ef38`
       );
       const jsonData = await fetchData.json();
-      setDays(jsonData);
+      setCountry(jsonData);
     } catch (error) {
       console.error("Error al obtener datos:", error);
     }
@@ -56,9 +55,11 @@ export const SideLeft = ({
 
   useEffect(() => {
     getDataDays();
+
+    let ubicacion = country?.city;
+    uicacionActual(ubicacion && ubicacion?.name);
   }, [locacion]);
-  let ubicacion = days?.city;
-  uicacionActual(ubicacion && ubicacion?.name);
+
   return (
     <>
       <div className="TiempoActual">

@@ -41,8 +41,6 @@ function App() {
     setUbiDefecto(ubiActual);
   };
 
-  useEffect(() => {}, [ubiDefecto]);
-
   const handleBtnCelcius = () => {
     let btnCel = document.getElementById("btnC");
     let btnFaren = document.getElementById("btnF");
