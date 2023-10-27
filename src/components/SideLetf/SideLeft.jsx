@@ -1,6 +1,6 @@
 import "./SideLeft.css";
 import ImgNubes from "../../assets/img1.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const SideLeft = ({
   data,
@@ -9,6 +9,7 @@ export const SideLeft = ({
   handleBtnMadrid,
   handleBtnTokio,
   onSearchCountry,
+  uicacionActual,
 }) => {
   let prueba = data?.weather;
   let temp = data?.main;
@@ -26,7 +27,39 @@ export const SideLeft = ({
     onSearchCountry(searchValue);
     setSearchValue("");
   };
+  const [locacion, setLocacion] = useState(null);
+  const [days, setDays] = useState([]);
+  const [ubi, setUbi] = useState(null);
 
+  const handleLocation = () => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const latitud = position.coords.latitude;
+        const longitud = position.coords.longitude;
+        setLocacion({ latitud, longitud });
+        console.log(`Tu ubicación es: ${latitud}, ${longitud}`);
+      });
+    } else {
+      console.log("Geolocalización no disponible en este navegador.");
+    }
+  };
+  const getDataDays = async () => {
+    try {
+      const fetchData = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${locacion.latitud}&lon=${locacion.longitud}&appid=7ebb54cecddb5d056fa89844ff55ef38`
+      );
+      const jsonData = await fetchData.json();
+      setDays(jsonData);
+    } catch (error) {
+      console.error("Error al obtener datos:", error);
+    }
+  };
+
+  useEffect(() => {
+    getDataDays();
+  }, [locacion]);
+  let ubicacion = days?.city;
+  console.log(ubicacion && ubicacion?.name);
   return (
     <>
       <div className="TiempoActual">
@@ -41,7 +74,12 @@ export const SideLeft = ({
             Seach for places
           </button>
 
-          <button className="btnLocation" type="button " data-bs-toggle="modal">
+          <button
+            className="btnLocation"
+            type="button "
+            data-bs-toggle="modal"
+            onClick={handleLocation}
+          >
             <i className="bi bi-crosshair"></i>
           </button>
         </div>

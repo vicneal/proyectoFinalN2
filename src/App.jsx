@@ -33,9 +33,12 @@ function App() {
   const handleBtnTokio = () => {
     setUbiDefecto("tokio");
   };
-  const onSearchCountry = (newValue) => {
-    console.log("Nuevo valor de búsqueda en App:", newValue);
-    setUbiDefecto(newValue);
+  const onSearchCountry = (ubiDefecto) => {
+    setUbiDefecto(ubiDefecto);
+  };
+
+  const uicacionActual = (ubiActual) => {
+    console.log("Nuevo valor de búsqueda en App:", ubiDefecto);
   };
 
   useEffect(() => {}, [ubiDefecto]);
@@ -69,6 +72,7 @@ function App() {
           handleBtnMadrid={handleBtnMadrid}
           handleBtnTokio={handleBtnTokio}
           onSearchCountry={onSearchCountry}
+          uicacionActual={uicacionActual}
         />
         <SideRigth
           data={data}
